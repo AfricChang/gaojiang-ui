@@ -7,7 +7,7 @@ import {
     getHlTheme,
     getTheme,
 } from "@wenyan-md/core";
-import type { AlertMessage, ConfirmMessage, CurrentTheme, FrontMatterResult, Platform } from "./types";
+import type { AlertMessage, ConfirmMessage, CurrentTheme, FrontMatterResult, Platform, ViewMode } from "./types";
 import { themeStore } from "./stores/themeStore.svelte";
 import { settingsStore } from "./stores/settingsStore.svelte";
 import { articleStore } from "./stores/articleStore.svelte";
@@ -120,6 +120,7 @@ class GlobalState {
     private markdownText = $state("");
     private isSidebarOpen = $state(false);
     private currentPlatform = $state<Platform>("wechat");
+    private viewMode = $state<ViewMode>("split");
     private themeEditMode = $state(false);
     private currentTheme = $state<CurrentTheme>({ id: "default", name: "默认", css: "" });
     private currentHlTheme = $state("github");
@@ -151,7 +152,7 @@ class GlobalState {
     }
 
     judgeSidebarOpen(): boolean {
-        return this.isSidebarOpen && this.getPlatform() === "wechat";
+        return this.isSidebarOpen && this.getPlatform() === "wechat" && this.getViewMode() !== "editor";
     }
 
     setAlertMessage(message: AlertMessage | null) {
@@ -183,6 +184,14 @@ class GlobalState {
 
     getPlatform(): Platform {
         return this.currentPlatform;
+    }
+
+    setViewMode(mode: ViewMode) {
+        this.viewMode = mode;
+    }
+
+    getViewMode(): ViewMode {
+        return this.viewMode;
     }
 
     setCurrentTheme(theme: string) {

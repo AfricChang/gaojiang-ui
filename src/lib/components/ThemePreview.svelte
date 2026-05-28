@@ -5,10 +5,19 @@
     import { getMacStyleCss } from "@wenyan-md/core";
     import { getImageProcessorAction, getPreviewClick } from "../hooks/preview";
 
-    let { scrollRef = $bindable() }: { scrollRef?: HTMLElement | null } = $props();
+    let {
+        scrollRef = $bindable(),
+        wide = false,
+    }: {
+        scrollRef?: HTMLElement | null;
+        wide?: boolean;
+    } = $props();
 
     const onPreviewClick = getPreviewClick();
     const imageProcessorAction = getImageProcessorAction();
+    let pageClass = $derived(
+        ["preview-page", wide ? "preview-page-wide" : "preview-page-normal"].join(" ")
+    );
 
     $effect(() => {
         wenyanRenderer.render(globalState.getMarkdownText());
@@ -97,7 +106,7 @@
 </script>
 
 <div use:handleClick bind:this={scrollRef} class="h-full w-full scroll-container">
-    <div class="m-auto w-105 outline-none shadow-[0_0_60px_rgba(0,0,0,0.1)] p-5">
+    <div class={pageClass}>
         <section id="wenyan" use:imageProcessorAction>
             {@html wenyanRenderer.html}
         </section>
@@ -110,6 +119,27 @@
         scrollbar-color: #c2c2c2 transparent;
         overflow: auto;
         overscroll-behavior: none;
+    }
+
+    .preview-page {
+        margin: auto;
+        outline: none;
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.1);
+        padding: 1.25rem;
+    }
+
+    .preview-page-normal {
+        width: 26.25rem;
+    }
+
+    .preview-page-wide {
+        width: min(860px, calc(100% - 4rem));
+    }
+
+    @media (max-width: 640px) {
+        .preview-page-wide {
+            width: calc(100% - 1rem);
+        }
     }
 
     @supports (background: -webkit-named-image(i)) {

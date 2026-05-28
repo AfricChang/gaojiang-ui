@@ -6,27 +6,44 @@
     import EditorOverlayPanel from "./customs/CustomThemeOverlayPanel.svelte";
 
     const scroller = new ScrollSynchronizer();
+    let viewMode = $derived(globalState.getViewMode());
+    let showEditorPane = $derived(viewMode !== "preview");
+    let showPreviewPane = $derived(viewMode !== "editor");
+    let isSplitMode = $derived(showEditorPane && showPreviewPane);
+    let editorPaneClass = $derived(
+        [
+            "flex w-full flex-col md:h-full md:flex-1 md:min-w-0",
+            isSplitMode ? "h-1/2 border-b border-gray-300 md:border-b-0 md:border-r" : "h-full",
+        ].join(" ")
+    );
+    let previewPaneClass = $derived(
+        ["relative flex w-full flex-col md:h-full md:flex-1 md:min-w-0", isSplitMode ? "h-1/2" : "h-full"].join(
+            " "
+        )
+    );
 </script>
 
-<div
-    class="flex h-1/2 w-full flex-col border-b border-gray-300 md:h-full md:flex-1 md:min-w-0 md:border-b-0 md:border-r"
->
-    <div class="relative flex-1 overflow-hidden">
-        {#if globalState.getThemeEditMode()}
-            <CssEditor />
-            <EditorOverlayPanel />
-        {:else}
-            <MarkdownEditor bind:scrollRef={scroller.left} />
+{#if showEditorPane}
+    <div class={editorPaneClass}>
+        <div class="relative flex-1 overflow-hidden">
+            {#if globalState.getThemeEditMode()}
+                <CssEditor />
+                <EditorOverlayPanel />
+            {:else}
+                <MarkdownEditor bind:scrollRef={scroller.left} />
+            {/if}
+        </div>
+    </div>
+{/if}
+
+{#if showPreviewPane}
+    <div class={previewPaneClass}>
+        {#if !globalState.getThemeEditMode()}
+            <OverlayButtons />
         {/if}
-    </div>
-</div>
 
-<div class="relative flex h-1/2 w-full flex-col md:h-full md:flex-1 md:min-w-0">
-    {#if !globalState.getThemeEditMode()}
-        <OverlayButtons />
-    {/if}
-
-    <div class="max-w-none flex-1 overflow-hidden">
-        <ThemePreview bind:scrollRef={scroller.right} />
+        <div class="max-w-none flex-1 overflow-hidden">
+            <ThemePreview bind:scrollRef={scroller.right} wide={viewMode === "preview"} />
+        </div>
     </div>
-</div>
+{/if}

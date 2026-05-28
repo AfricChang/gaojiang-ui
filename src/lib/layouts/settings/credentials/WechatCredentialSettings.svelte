@@ -4,7 +4,7 @@
     import { getUploadHelpClick } from "../../../hooks/upload";
 
     let wechat = credentialStore.wechat;
-    let debounceTimer: ReturnType<typeof setTimeout>;
+    let debounceTimer: number | undefined;
     let message = $state("");
 
     const handleHelpClick = getUploadHelpClick();
@@ -12,11 +12,11 @@
 
     $effect(() => {
         const _deps = [wechat.appId, wechat.appSecret];
-        clearTimeout(debounceTimer);
+        window.clearTimeout(debounceTimer);
         debounceTimer = window.setTimeout(() => {
             credentialStore.saveCredential("wechat");
         }, 300);
-        return () => clearTimeout(debounceTimer);
+        return () => window.clearTimeout(debounceTimer);
     });
 
     function onResetToken() {

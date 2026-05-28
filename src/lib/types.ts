@@ -1,5 +1,6 @@
 export type Platform = "wechat" | "toutiao" | "zhihu" | "juejin" | "medium";
 export type CopyContentType = "html" | "txt";
+export type ViewMode = "split" | "editor" | "preview";
 
 export interface AlertMessage {
     type: "info" | "success" | "warning" | "error";
