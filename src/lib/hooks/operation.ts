@@ -1,5 +1,5 @@
 import { setContext, getContext } from "svelte";
-import { defaultExportImageHandler } from "../services/defaultExportHandler";
+import { defaultExportImageHandler, defaultExportPdfHandler } from "../services/defaultExportHandler";
 import { globalState, wenyanCopier, wenyanRenderer } from "../wenyan.svelte";
 import { themeStore } from "../stores/themeStore.svelte";
 import { copyHtmlToClipboard, copyTextToClipboard, getWenyanElement } from "../utils";
@@ -7,6 +7,7 @@ import { addFootnotes } from "@wenyan-md/core";
 import {
     COPY_CLICK_KEY,
     EXPORT_IMAGE_KEY,
+    EXPORT_PDF_KEY,
     FOOTNOTE_CLICK_KEY,
     GET_WENYAN_ELEMENT_KEY,
     HANDLE_FILE_OPEN_KEY,
@@ -19,6 +20,7 @@ type GetWenyanElementFn = () => HTMLElement;
 type CopyClickFn = () => Promise<void>;
 type FootnoteClickFn = (isEnabled: boolean) => Promise<void>;
 type ExportImageClickFn = () => Promise<void>;
+type ExportPdfClickFn = () => Promise<void>;
 type ImportCssClickFn = (url: string, name: string) => Promise<void>;
 type HandleFileOpenFn = (path: string) => Promise<void>;
 type MarkdownFileDropFn = () => Promise<void>;
@@ -54,6 +56,14 @@ export function setExportImageClick(fn: ExportImageClickFn) {
 
 export function getExportImageClick(): ExportImageClickFn {
     return getContext<ExportImageClickFn>(EXPORT_IMAGE_KEY) ?? defaultExportImageHandler;
+}
+
+export function setExportPdfClick(fn: ExportPdfClickFn) {
+    setContext(EXPORT_PDF_KEY, fn);
+}
+
+export function getExportPdfClick(): ExportPdfClickFn {
+    return getContext<ExportPdfClickFn>(EXPORT_PDF_KEY) ?? defaultExportPdfHandler;
 }
 
 export function setImportCssClick(fn: ImportCssClickFn) {

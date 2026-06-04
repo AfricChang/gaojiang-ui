@@ -71,6 +71,14 @@ export async function defaultExportImageHandler() {
     });
 }
 
+export async function defaultExportPdfHandler() {
+    globalState.setAlertMessage({
+        type: "info",
+        title: "导出 PDF",
+        message: "网页版暂不支持导出 PDF，请使用桌面客户端。",
+    });
+}
+
 async function exportImage() {
     let bgColor = window.getComputedStyle(document.body).backgroundColor;
     // 如果获取到的是透明色 (rgba(0, 0, 0, 0)) 或者 transparent，设置为白色

@@ -1,5 +1,6 @@
 <script lang="ts">
     import ImageExportButton from "../components/buttons/ImageExportButton.svelte";
+    import PdfExportButton from "../components/buttons/PdfExportButton.svelte";
     import CopyButton from "../components/buttons/CopyButton.svelte";
     import FootnoteButton from "../components/buttons/FootnoteButton.svelte";
     import StyleButton from "../components/buttons/StyleButton.svelte";
@@ -15,6 +16,7 @@
     {/if}
     <FootnoteButton />
     <ImageExportButton />
+    <PdfExportButton />
     <CopyButton />
     {#if globalState.getPlatform() === "wechat"}
         <PublishButton />

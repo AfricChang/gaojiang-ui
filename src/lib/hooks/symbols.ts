@@ -6,6 +6,7 @@ export const GET_WENYAN_ELEMENT_KEY = Symbol("GET_WENYAN_ELEMENT");
 export const COPY_CLICK_KEY = Symbol("COPY_CLICK");
 export const FOOTNOTE_CLICK_KEY = Symbol("FOOTNOTE_CLICK");
 export const EXPORT_IMAGE_KEY = Symbol("EXPORT_IMAGE");
+export const EXPORT_PDF_KEY = Symbol("EXPORT_PDF");
 export const IMPORT_CSS_KEY = Symbol("IMPORT_CSS");
 export const HANDLE_FILE_OPEN_KEY = Symbol("HANDLE_FILE_OPEN");
 export const MARKDOWN_FILE_DROP_KEY = Symbol("MARKDOWN_FILE_DROP");
