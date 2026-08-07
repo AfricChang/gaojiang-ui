@@ -7,6 +7,7 @@ export * from "./utils";
 // stores
 export * from "./stores/articleStore.svelte";
 export * from "./stores/themeStore.svelte";
+export * from "./stores/colorModeStore.svelte";
 export * from "./stores/settingsStore.svelte";
 export * from "./stores/credentialStore.svelte";
 

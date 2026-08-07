@@ -2,6 +2,7 @@
     import { goto } from "$app/navigation";
     import { FileSidebarButton } from ".";
     import WenYanButton from "../components/buttons/WenYanButton.svelte";
+    import ColorModeToggle from "../components/ColorModeToggle.svelte";
     import PlatformButtons from "./PlatformButtons.svelte";
 </script>
 
@@ -12,5 +13,8 @@
         <FileSidebarButton />
     </div>
 
-    <PlatformButtons w="24px" />
+    <div class="flex items-center gap-2">
+        <ColorModeToggle />
+        <PlatformButtons w="24px" />
+    </div>
 </div>

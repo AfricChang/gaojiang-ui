@@ -9,18 +9,16 @@
     import { vsCodeDark } from "@fsegurai/codemirror-theme-vscode-dark";
     import { globalState } from "../wenyan.svelte";
     import { monospace } from "@wenyan-md/core";
+    import { colorModeStore } from "../stores/colorModeStore.svelte";
 
     let editorElement: HTMLDivElement;
     let view: EditorView;
     const themeConfig = new Compartment();
-    let isDarkMode = $state(false);
+    let isDarkMode = $derived(colorModeStore.getMode() === "dark");
     let cssContent = $derived(globalState.getCurrentThemeCss());
 
     onMount(() => {
-        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-        isDarkMode = mediaQuery.matches;
-        const handler = (e: MediaQueryListEvent) => (isDarkMode = e.matches);
-        mediaQuery.addEventListener("change", handler);
+        colorModeStore.initialize();
 
         const state = EditorState.create({
             doc: cssContent,
@@ -53,7 +51,6 @@
         view = new EditorView({ state, parent: editorElement });
 
         return () => {
-            mediaQuery.removeEventListener("change", handler);
             view?.destroy();
         };
     });

@@ -13,6 +13,7 @@
     import { monospace } from "@wenyan-md/core";
     import { getHandleMarkdownContent, getMarkdownFileDrop } from "../hooks/operation";
     import { getUploadBlobImage } from "../hooks/upload";
+    import { colorModeStore } from "../stores/colorModeStore.svelte";
 
     let { scrollRef = $bindable() }: { scrollRef?: HTMLElement | null } = $props();
 
@@ -26,17 +27,11 @@
     let editorElement: HTMLDivElement;
     let view: EditorView;
     const themeConfig = new Compartment();
-    let isDarkMode = $state(false);
+    let isDarkMode = $derived(colorModeStore.getMode() === "dark");
     let markdownContent = $derived(globalState.getMarkdownText());
 
     onMount(() => {
-        // --- 初始化系统主题检测 ---
-        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-        isDarkMode = mediaQuery.matches;
-        const handler = (e: MediaQueryListEvent) => {
-            isDarkMode = e.matches;
-        };
-        mediaQuery.addEventListener("change", handler);
+        colorModeStore.initialize();
 
         const state = EditorState.create({
             doc: markdownContent,
@@ -82,7 +77,6 @@
         scrollRef = view.scrollDOM; // 将滚动容器暴露出去
 
         return () => {
-            mediaQuery.removeEventListener("change", handler);
             view?.destroy();
         };
     });
