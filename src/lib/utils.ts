@@ -1,4 +1,4 @@
-const imgType = ["image/bmp", "image/png", "image/jpeg", "image/gif", "video/mp4"];
+const imgType = ["image/bmp", "image/png", "image/jpeg", "image/gif", "image/svg+xml", "video/mp4"];
 
 export async function copyHtmlToClipboard(htmlString: string) {
     if (!navigator.clipboard?.write) {
@@ -72,14 +72,16 @@ export function readFileAsText(file: File): Promise<string> {
     });
 }
 
-export function bufferToBase64(buffer: ArrayBuffer): Promise<string> {
+export function bufferToBase64(buffer: ArrayBuffer, mimeType?: string): Promise<string> {
     return new Promise((resolve, reject) => {
-        const blob = new Blob([buffer]);
+        // 必须带上正确的 mimeType：浏览器只对位图（png/jpeg/gif...）做内容嗅探，
+        // SVG 仅在 MIME 为 image/svg+xml 时才会被解析，否则 <img> 直接加载失败。
+        const blob = mimeType ? new Blob([buffer], { type: mimeType }) : new Blob([buffer]);
         const reader = new FileReader();
 
         reader.onload = () => {
             const result = reader.result;
-            // 结果通常是 "data:application/octet-stream;base64,xxxx"
+            // 结果通常是 "data:image/png;base64,xxxx"，未指定 mimeType 时为 application/octet-stream
             if (typeof result === "string") {
                 // const base64 = result.split(',')[1];
                 resolve(result);
