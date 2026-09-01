@@ -6,7 +6,7 @@ function isolateMermaidLabelStyles(root: ParentNode) {
     const svgElement = root.querySelector<SVGSVGElement>("svg");
     if (!svgElement) return;
 
-    svgElement.setAttribute("data-wenyan-mermaid", "true");
+    svgElement.setAttribute("data-gaojiang-mermaid", "true");
 
     const labelElements = svgElement.querySelectorAll<HTMLElement>("foreignObject p, foreignObject div, foreignObject span");
     for (const element of labelElements) {
