@@ -114,7 +114,7 @@ async function exportImage() {
         });
 
         const link = document.createElement("a");
-        link.download = "wenyan-export.png";
+        link.download = "gaojiang-export.png";
         link.href = dataUrl;
         link.click();
     } finally {

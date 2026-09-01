@@ -1,10 +1,10 @@
-<div align="center">
-    <img alt="logo" src="https://raw.githubusercontent.com/caol64/wenyan/main/Data/256-mac.png" />
-</div>
+# 稿匠 UI 库
 
-# 文颜 UI 库
+> 本仓库基于上游 [caol64/wenyan-ui](https://github.com/caol64/wenyan-ui)（Apache License 2.0）继续维护，
+> 是 [AfricChang/gaojiang](https://github.com/AfricChang/gaojiang)（稿匠桌面端）使用的 UI 层。
+> 与上游文颜项目无官方关联。
 
-`@wenyan-md/ui` 是 Wenyan 生态中的 **UI 层**，封装了 Markdown 编辑、渲染预览、主题选择等通用界面组件，可同时服务于：
+`@gaojiang/ui` 封装了 Markdown 编辑、渲染预览、主题选择等通用界面组件，可同时服务于：
 
 * Web App（SvelteKit）
 * 桌面应用（Tauri / macOS）
@@ -34,7 +34,7 @@
 ## 安装
 
 ```bash
-npm install @wenyan-md/ui
+npm install @gaojiang/ui
 ```
 
 > [!NOTE]
@@ -47,7 +47,7 @@ npm install @wenyan-md/ui
 
 ```svelte
 <script lang="ts">
-  import { Editor, Preview } from "@wenyan-md/ui";
+  import { Editor, Preview } from "@gaojiang/ui";
 </script>
 
 <Editor />
@@ -65,7 +65,7 @@ npm install @wenyan-md/ui
 export default {
   content: [
     "./src/**/*.{html,js,svelte,ts}",
-    "./node_modules/@wenyan-md/ui/**/*.{svelte,js}"
+    "./node_modules/@gaojiang/ui/**/*.{svelte,js}"
   ],
   theme: {
     extend: {}
@@ -79,7 +79,7 @@ export default {
 ### UI 与逻辑分离
 
 ```text
-@wenyan-md/ui
+@gaojiang/ui
   └─ 负责：
      - 编辑器 UI
      - 主题选择
@@ -120,9 +120,7 @@ components/
 
 ## 使用场景
 
-* Wenyan Web 版
-* Wenyan macOS 客户端
-* Wenyan PC（Tauri）
+* 稿匠桌面端（Tauri）
 * 内部 CMS / 编辑器
 * Markdown → 微信工具
 
@@ -136,21 +134,18 @@ components/
 ## 项目关系
 
 ```text
-@wenyan-md/core   ← 核心逻辑（渲染 / 发布）
+@wenyan-md/core   ← 核心逻辑（渲染 / 发布），上游 npm 包，未 fork
         ↑
-@wenyan-md/ui     ← UI 组件库
+@gaojiang/ui      ← UI 组件库（本仓库）
         ↑
-@wenyan-md/web    ← Web App
-wenyan-macos      ← 桌面端（WebView）
-wenyan-pc         ← 桌面端（Tauri）
+gaojiang          ← 稿匠桌面端（Tauri）
 ```
 
-## 赞助
-
-如果你觉得文颜对你有帮助，可以给我家猫咪买点罐头 ❤️
-
-[https://yuzhi.tech/sponsor](https://yuzhi.tech/sponsor)
+上游文颜生态的其他成员（`@wenyan-md/web`、`wenyan-macos`、`wenyan-pc`）不在本仓库的维护范围内。
 
 ## License
 
 Apache License Version 2.0
+
+本仓库 fork 自 [caol64/wenyan-ui](https://github.com/caol64/wenyan-ui)，原始版权归上游作者所有；
+本 fork 的修改部分版权归 AfricChang。上游许可证全文见 `LICENSE`。

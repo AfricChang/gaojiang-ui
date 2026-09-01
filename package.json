@@ -1,7 +1,7 @@
 {
-  "name": "@wenyan-md/ui",
+  "name": "@gaojiang/ui",
   "version": "1.0.0",
-  "author": "Lei <caol64@gmail.com> (https://github.com/caol64)",
+  "author": "AfricChang (https://github.com/AfricChang)",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && pnpm prepack",

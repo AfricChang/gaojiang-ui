@@ -1,9 +1,9 @@
 <script lang="ts">
-    import Wenyan from "../icons/WenYan.svelte";
+    import Gaojiang from "../icons/Gaojiang.svelte";
 
     let { onClick, w = "28px", class: className = "" }: { onClick?: () => void; w?: string; class?: string } = $props();
 </script>
 
 <button onclick={onClick} class={className}>
-    <Wenyan {w} />
+    <Gaojiang {w} />
 </button>

@@ -3,8 +3,8 @@
 </script>
 
 <svg width={w} height={w} viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#1E90FF" rx="50" ry="50" />
-    <text x="75" y="115" text-anchor="middle" font-family="Arial" font-size="100" fill="#ffffff">颜</text>
+    <rect width="100%" height="100%" fill="#0F766E" rx="50" ry="50" />
+    <text x="75" y="115" text-anchor="middle" font-family="Arial" font-size="100" fill="#ffffff">稿</text>
     <path
         d="m 155 50 l 70 0 c 10 0 10 10 10 10 c 0 10 -10 10 -10 10 l -70 0 c 0 0 -10 0 -10 -10 c 0 -10 10 -10 10 -10"
         fill="#ffffff"
