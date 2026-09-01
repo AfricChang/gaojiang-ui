@@ -2,7 +2,7 @@
     import CssEditor from "../components/CssEditor.svelte";
     import { MarkdownEditor, OverlayButtons, ThemePreview } from "..";
     import { ScrollSynchronizer } from "../services/scrollSync.svelte";
-    import { globalState } from "../wenyan.svelte";
+    import { globalState } from "../gaojiang.svelte";
     import EditorOverlayPanel from "./customs/CustomThemeOverlayPanel.svelte";
 
     const scroller = new ScrollSynchronizer();

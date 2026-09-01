@@ -1,6 +1,6 @@
 <script lang="ts">
     import { type ThemeMeta } from "@wenyan-md/core";
-    import { globalState } from "../wenyan.svelte";
+    import { globalState } from "../gaojiang.svelte";
     import { themeStore } from "../stores/themeStore.svelte";
 
     let { themeMeta }: { themeMeta: ThemeMeta } = $props();

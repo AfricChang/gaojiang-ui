@@ -1,6 +1,6 @@
 <script lang="ts">
     import { themeStore } from "../../stores/themeStore.svelte";
-    import { globalState } from "../..//wenyan.svelte";
+    import { globalState } from "../..//gaojiang.svelte";
     import Trash from "../../components/icons/Trash.svelte";
 
     let { id }: { id: string } = $props();

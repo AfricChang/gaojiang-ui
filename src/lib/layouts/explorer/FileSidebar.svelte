@@ -3,7 +3,7 @@
     import type { FileSystemAdapter } from "./fs";
     import FileTreeItem from "./FileTreeItem.svelte";
     import FileSidebarButton from "./FileSidebarButton.svelte";
-    import { globalState } from "../../wenyan.svelte";
+    import { globalState } from "../../gaojiang.svelte";
 
     let { fsAdapter }: { fsAdapter?: FileSystemAdapter } = $props();
 

@@ -1,6 +1,6 @@
 <script lang="ts">
     import Toutiao from "../icons/Toutiao.svelte";
-    import { globalState } from "../../wenyan.svelte";
+    import { globalState } from "../../gaojiang.svelte";
 
     let { w = "20px" } = $props();
 

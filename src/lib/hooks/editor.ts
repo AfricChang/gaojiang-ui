@@ -1,7 +1,7 @@
 import type { EditorView } from "@codemirror/view";
 import { setContext, getContext } from "svelte";
 import { EDITOR_CLICK_KEY, EDITOR_DROP_KEY, EDITOR_PASTE_KEY } from "./symbols";
-import { globalState } from "../wenyan.svelte";
+import { globalState } from "../gaojiang.svelte";
 import { canHandleFile } from "../utils";
 import type { WechatUploadResponse } from "@wenyan-md/core/wechat";
 

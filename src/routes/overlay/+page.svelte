@@ -1,6 +1,6 @@
 <script lang="ts">
     import { OverlayButtons } from "$lib";
-    import { globalState } from "$lib/wenyan.svelte";
+    import { globalState } from "$lib/gaojiang.svelte";
 
     globalState.setThemeEditMode(true);
 

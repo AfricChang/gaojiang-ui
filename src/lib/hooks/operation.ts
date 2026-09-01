@@ -1,6 +1,6 @@
 import { setContext, getContext } from "svelte";
 import { defaultExportImageHandler, defaultExportPdfHandler } from "../services/defaultExportHandler";
-import { globalState, wenyanCopier, wenyanRenderer } from "../wenyan.svelte";
+import { globalState, gaojiangCopier, gaojiangRenderer } from "../gaojiang.svelte";
 import { themeStore } from "../stores/themeStore.svelte";
 import { copyHtmlToClipboard, copyTextToClipboard, getWenyanElement } from "../utils";
 import { addFootnotes } from "@wenyan-md/core";
@@ -130,11 +130,11 @@ export function getHandleMarkdownContent(): HandleMarkdownContentFn {
 
 async function defaultCopyHandler() {
     if (globalState.getPlatform() === "juejin") {
-        copyTextToClipboard(wenyanRenderer.postHandlerContent);
+        copyTextToClipboard(gaojiangRenderer.postHandlerContent);
     } else {
         const wenyanElement = getWenyanElement();
-        await wenyanCopier.copy(wenyanElement);
-        copyHtmlToClipboard(wenyanCopier.html);
+        await gaojiangCopier.copy(wenyanElement);
+        copyHtmlToClipboard(gaojiangCopier.html);
     }
 }
 
@@ -142,8 +142,8 @@ function defaultFootnoteHandler(isEnabled: boolean) {
     if (isEnabled) {
         const wenyanElement = getWenyanElement();
         addFootnotes(wenyanElement);
-        wenyanRenderer.html = wenyanElement.innerHTML;
+        gaojiangRenderer.html = wenyanElement.innerHTML;
     } else {
-        wenyanRenderer.render(globalState.getMarkdownText());
+        gaojiangRenderer.render(globalState.getMarkdownText());
     }
 }

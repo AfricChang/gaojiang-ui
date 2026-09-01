@@ -2,7 +2,7 @@
     import { getAutoCacheChangeClick } from "../../hooks/setting";
     import ToggleSwitcher from "../../components/ToggleSwitcher.svelte";
     import { settingsStore } from "../../stores/settingsStore.svelte";
-    import { globalState } from "../../wenyan.svelte";
+    import { globalState } from "../../gaojiang.svelte";
 
     let isWechatChecked = $derived(settingsStore.enabledImageHost === "wechat");
     const onAutoCacheChange = getAutoCacheChangeClick();

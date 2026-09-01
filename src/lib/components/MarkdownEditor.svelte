@@ -8,7 +8,7 @@
     import { vsCodeLight } from "@fsegurai/codemirror-theme-vscode-light";
     import { vsCodeDark } from "@fsegurai/codemirror-theme-vscode-dark";
     import { languages } from "@codemirror/language-data";
-    import { globalState } from "../wenyan.svelte";
+    import { globalState } from "../gaojiang.svelte";
     import { getEditorClick, getEditorPaste, getEditorDrop } from "../hooks/editor";
     import { monospace } from "@wenyan-md/core";
     import { getHandleMarkdownContent, getMarkdownFileDrop } from "../hooks/operation";

@@ -2,7 +2,7 @@
     import { getImportCssClick } from "../../hooks/operation";
     import { Modal } from "../../components";
     import { themeStore } from "../../stores/themeStore.svelte";
-    import { globalState } from "../../wenyan.svelte";
+    import { globalState } from "../../gaojiang.svelte";
 
     let { isOpen, onClose }: { isOpen: boolean; onClose?: () => void } = $props();
 

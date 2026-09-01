@@ -7,7 +7,7 @@
     import { indentWithTab } from "@codemirror/commands";
     import { vsCodeLight } from "@fsegurai/codemirror-theme-vscode-light";
     import { vsCodeDark } from "@fsegurai/codemirror-theme-vscode-dark";
-    import { globalState } from "../wenyan.svelte";
+    import { globalState } from "../gaojiang.svelte";
     import { monospace } from "@wenyan-md/core";
     import { colorModeStore } from "../stores/colorModeStore.svelte";
 

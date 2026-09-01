@@ -39,7 +39,7 @@ class WenyanCoreManager {
 // 全局唯一的管理器实例
 const coreManager = new WenyanCoreManager();
 
-class WenyanRenderer {
+class GaojiangRenderer {
     html = $state("");
     postHandlerContent = "";
     frontMatterResult: FrontMatterResult = { body: "" };
@@ -72,7 +72,7 @@ class WenyanRenderer {
     }
 }
 
-class WenyanCopier {
+class GaojiangCopier {
     html = $state("");
 
     constructor() {
@@ -304,6 +304,6 @@ class GlobalState {
 }
 
 // 导出单例
-export const wenyanRenderer = new WenyanRenderer();
-export const wenyanCopier = new WenyanCopier();
+export const gaojiangRenderer = new GaojiangRenderer();
+export const gaojiangCopier = new GaojiangCopier();
 export const globalState = new GlobalState();

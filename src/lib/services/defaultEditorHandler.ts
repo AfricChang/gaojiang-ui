@@ -1,5 +1,5 @@
 import type { EditorView } from "codemirror";
-import { globalState } from "../wenyan.svelte";
+import { globalState } from "../gaojiang.svelte";
 import { canHandleFile, getFileExtension, readFileAsText } from "../utils";
 import type { WechatUploadResponse } from "@wenyan-md/core/wechat";
 

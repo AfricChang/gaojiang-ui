@@ -1,6 +1,6 @@
 export * from "./components";
 export * from "./layouts";
-export * from "./wenyan.svelte";
+export * from "./gaojiang.svelte";
 export * from "./types";
 export * from "./utils";
 

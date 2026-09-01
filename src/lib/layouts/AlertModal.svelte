@@ -1,6 +1,6 @@
 <script lang="ts">
     import Modal from "../components/Modal.svelte";
-    import { globalState } from "../wenyan.svelte";
+    import { globalState } from "../gaojiang.svelte";
 
     let alertMessage = $derived(globalState.getAlertMessage());
     let isOpen = $derived(alertMessage !== null);

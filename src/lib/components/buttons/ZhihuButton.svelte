@@ -1,6 +1,6 @@
 <script lang="ts">
     import Zhihu from "../icons/Zhihu.svelte";
-    import { globalState } from "../../wenyan.svelte";
+    import { globalState } from "../../gaojiang.svelte";
 
     let { w = "20px" } = $props();
 

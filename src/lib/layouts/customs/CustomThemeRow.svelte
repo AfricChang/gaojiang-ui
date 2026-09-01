@@ -1,6 +1,6 @@
 <script lang="ts">
     import { tick } from "svelte";
-    import { globalState } from "../../wenyan.svelte";
+    import { globalState } from "../../gaojiang.svelte";
     import DeleteCustomThemeButton from "./DeleteCustomThemeButton.svelte";
     import EditCustomThemeButton from "./EditCustomThemeButton.svelte";
     import { themeStore } from "../../stores/themeStore.svelte";

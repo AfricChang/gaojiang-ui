@@ -1,6 +1,6 @@
 <script lang="ts">
     import SaveCustomThemeButton from "./SaveCustomThemeButton.svelte";
-    import { globalState } from "../../wenyan.svelte";
+    import { globalState } from "../../gaojiang.svelte";
     import CancelCustomThemeButton from "./CancelCustomThemeButton.svelte";
 
     let isAdd = $derived(globalState.getCurrentThemeId().startsWith("0:"));

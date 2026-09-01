@@ -3,7 +3,7 @@
     import type { FileSystemAdapter } from "./fs";
     import Self from "./FileTreeItem.svelte";
     import { getHandleFileOpen } from "../../hooks/operation";
-    import { globalState } from "../../wenyan.svelte";
+    import { globalState } from "../../gaojiang.svelte";
 
     let {
         entry,

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { settingsStore, type CodeblockSettings, type ParagraphSettings } from "../stores/settingsStore.svelte";
     import { comboCodeblockSettings, comboParagraphSettings } from "../services/stylesCombo";
-    import { wenyanRenderer, globalState } from "../wenyan.svelte";
+    import { gaojiangRenderer, globalState } from "../gaojiang.svelte";
     import { getMacStyleCss } from "@wenyan-md/core";
     import { getImageProcessorAction, getPreviewClick } from "../hooks/preview";
 
@@ -20,7 +20,7 @@
     );
 
     $effect(() => {
-        wenyanRenderer.render(globalState.getMarkdownText());
+        gaojiangRenderer.render(globalState.getMarkdownText());
     });
 
     $effect(() => {
@@ -108,7 +108,7 @@
 <div use:handleClick bind:this={scrollRef} class="h-full w-full scroll-container">
     <div class={pageClass}>
         <section id="wenyan" use:imageProcessorAction>
-            {@html wenyanRenderer.html}
+            {@html gaojiangRenderer.html}
         </section>
     </div>
 </div>

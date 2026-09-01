@@ -4,7 +4,7 @@
     import ToggleSwitcher from "../components/ToggleSwitcher.svelte";
     import { getAllHlThemes } from "@wenyan-md/core";
     import { settingsStore } from "../stores/settingsStore.svelte";
-    import { globalState } from "../wenyan.svelte";
+    import { globalState } from "../gaojiang.svelte";
 
     let codeblockSettings = settingsStore.codeblockSettings;
     const allHlThemes = getAllHlThemes();

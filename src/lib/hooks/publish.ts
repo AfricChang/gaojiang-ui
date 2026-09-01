@@ -1,5 +1,5 @@
 import { setContext, getContext } from "svelte";
-import { globalState } from "../wenyan.svelte";
+import { globalState } from "../gaojiang.svelte";
 import { PUBLISH_ARTICLE_KEY, PUBLISH_ARTICLE_TO_DRAFT_KEY, PUBLISH_HELP_KEY } from "./symbols";
 import type { WechatPublishOptions, WechatUploadResponse } from "@wenyan-md/core/wechat";
 

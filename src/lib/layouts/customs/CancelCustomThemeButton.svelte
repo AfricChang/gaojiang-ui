@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { globalState } from "../../wenyan.svelte";
+    import { globalState } from "../../gaojiang.svelte";
     import { themeStore } from "../../stores/themeStore.svelte";
 
     function cancel() {

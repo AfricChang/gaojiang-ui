@@ -1,5 +1,5 @@
 import type { WechatUploadResponse, WechatPublishOptions } from "@wenyan-md/core/wechat";
-import { globalState, wenyanCopier, wenyanRenderer } from "../wenyan.svelte";
+import { globalState, gaojiangCopier, gaojiangRenderer } from "../gaojiang.svelte";
 
 export async function defaultPublishHandler(
     wenyanElement: HTMLElement,
@@ -9,7 +9,7 @@ export async function defaultPublishHandler(
 ) {
     try {
         globalState.isLoading = true;
-        const { title, cover, author, source_url } = wenyanRenderer.frontMatterResult;
+        const { title, cover, author, source_url } = gaojiangRenderer.frontMatterResult;
         if (!title) throw new Error("未能找到文章标题");
 
         // 处理文档中的图片资源，上传到微信服务器并替换为微信服务器的URL，返回第一张图片的media_id作为封面备用
@@ -39,8 +39,8 @@ export async function defaultPublishHandler(
         if (!coverImageId) {
             throw new Error("未能找到文章封面");
         }
-        await wenyanCopier.copy(wenyanElement);
-        const content = wenyanCopier.html;
+        await gaojiangCopier.copy(wenyanElement);
+        const content = gaojiangCopier.html;
         await handlePublishArticleToDraft({
             title,
             content,

@@ -4,7 +4,7 @@
     import CopyButton from "../components/buttons/CopyButton.svelte";
     import FootnoteButton from "../components/buttons/FootnoteButton.svelte";
     import StyleButton from "../components/buttons/StyleButton.svelte";
-    import { globalState } from "../wenyan.svelte";
+    import { globalState } from "../gaojiang.svelte";
     import PublishButton from "../components/buttons/PublishButton.svelte";
 </script>
 

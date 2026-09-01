@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { ViewMode } from "../types";
-    import { globalState } from "../wenyan.svelte";
+    import { globalState } from "../gaojiang.svelte";
     import LeftSplitRect from "../components/icons/LeftSplitRect.svelte";
     import RightSplitRect from "../components/icons/RightSplitRect.svelte";
     import Pencil from "../components/icons/Pencil.svelte";

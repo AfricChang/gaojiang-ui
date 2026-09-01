@@ -1,4 +1,4 @@
-import { globalState } from "../wenyan.svelte";
+import { globalState } from "../gaojiang.svelte";
 import { domToPng } from "modern-screenshot";
 
 async function rasterizeMermaidSvgs(root: HTMLElement) {
